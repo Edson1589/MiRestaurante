@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f4ee;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+    }
+
+    .logo {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+        background-color: #b5895b;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            display: none;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url('https://th.bing.com/th/id/R.70f2b2470249b96f179d1397e298ced1?rik=z4hdmslrYQM68Q&pid=ImgRaw&r=0');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 200px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    .menu-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .menu-card {
+        background: white;
+        border: 2px solid #b5895b;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 2px solid #b5895b;
+    }
+
+    .menu-card h3 {
+        font-size: 1.2rem;
+        color: #b5895b;
+        margin: 10px 0;
+    }
+
+    .menu-card p {
+        color: #555;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .menu-card .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #b5895b;
+        margin-bottom: 15px;
+    }
+
+    .menu-card .counter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .menu-card .counter-container button {
+        background-color: #b5895b;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .menu-card .counter-container button:hover {
+        background-color: #996a4c;
+    }
+
+    .menu-card .counter-container span {
+        font-size: 1.2rem;
+        margin: 0 10px;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    .menu-card .add-btn {
+        display: block;
+        background-color: #b5895b;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .menu-card .add-btn:hover {
+        background-color: #996a4c;
+    }
+
+    @media (max-width: 768px) {
+        .menu-card img {
+            height: 150px;
+        }
+    }
+
+    footer {
+        text-align: center;
+        background: #333;
+        padding: 1rem 0;
+    }
+
+    footer a {
+        color: #b5895b;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #fff;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        footer .footer-content {
+            text-align: center;
+        }
+    }
+
+    .services-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .services-header h1 {
+        color: #5e3e23;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .services-header p {
+        color: #a87b56;
+        font-size: 1.2rem;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+
+    .modal-content h3 {
+        color: #b5895b;
+        margin: 10px 0;
+    }
+
+    .modal-content p {
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .modal-content .price {
+        font-size: 1.2rem;
+        color: #b5895b;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+
+    .modal-content button {
+        background-color: #b5895b;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .modal-content button:hover {
+        background-color: #996a4c;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #b5895b;
+    }
+
+    @media (max-width: 768px) {
+        .modal-content img {
+            height: 120px;
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Mi Restaurante</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Sucursales.html">Sucursales</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Menu.html" class="active">Menú</a></li>
+                <li><a href="Reclamos.html">Reclamos</a></li>
+                <li><a href="Reservacion.html">Reservaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">NUESTRO MENU</h1>
+        </div>
+    </section>
+
+    <div class="services-header">
+        <h1>Disfruta de nuestra variedad de platos</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, necessitatibus.</p>
+    </div>
+
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="https://cdn.bolivia.com/gastronomia/2012/12/11/pique-macho-3502-1.jpg" alt="Black Coffee">
+            <h3>Pique Macho</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, cum.</p>
+            <div class="price">Bs. 5</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://revistaboliviain.com/wp-content/uploads/2023/04/fricase-fotos-articulo-web.png"
+                alt="Black Coffee">
+            <h3>Fricase</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure culpa veniam est?</p>
+            <div class="price">Bs. 6</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://chipabythedozen.com/wp-content/uploads/2022/06/sopa-de-mani-boliviana.jpg"
+                alt="Black Coffee">
+            <h3>Sopa de Maní</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum consequatur vel voluptates sit
+                repudiandae reiciendis.</p>
+            <div class="price">Bs. 7</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://www.cocina-boliviana.com/base/stock/Recipe/charquekan-orureno/charquekan-orureno_web.jpg.webp"
+                alt="Black Coffee">
+            <h3>Charquekan</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab voluptatibus error quo optio provident dicta
+                aperiam?</p>
+            <div class="price">Bs. 9</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossy,ret_img/https://sofia.com.bo/wp-content/uploads/2021/06/chicharron_cerdo_yo_chef.jpg"
+                alt="Black Coffee">
+            <h3>Chicharron</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, provident placeat. Quis facilis
+                nulla laudantium assumenda, voluptatem pariatur.</p>
+            <div class="price">Bs. 12</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img
+                src="https://estaticos-noticias.unitel.bo/binrepository/600x274/0c0/0d0/none/125450566/NTMI/as-qued-nuestro-delicioso-falso-conejo-foto-unitel_892920838_1140x520_UN412993_MG172732892.jpeg">
+            <h3>Falso Conejo</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae alias molestiae eligendi omnis nostrum
+                maiores tempore cupiditate repellat accusantium quos!</p>
+            <div class="price">Bs. 10</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img
+                src="https://www.cochabamba2018.bo/wp-content/uploads/2024/07/picante-de-pollo-boliviano-1-715x400.jpg">
+            <h3>Picante de Pollo</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, cum.</p>
+            <div class="price">Bs. 7</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://www.lostiempos.com/sites/default/files/media_imagen/2018/9/14/img-20180829-wa0004.jpg">
+            <h3>Silpancho</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A incidunt beatae iure, omnis tempora nulla?
+            </p>
+            <div class="price">Bs. 8</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://i.ytimg.com/vi/ydESLqRFg7g/maxresdefault.jpg">
+            <h3>Plato Paceño</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam beatae fuga quia totam, architecto nisi!
+                Nesciunt sit voluptatibus molestiae porro!</p>
+            <div class="price">Bs. 13</div>
+            <div class="counter-container">
+                <button class="decrease-btn">-</button>
+                <span class="counter">0</span>
+                <button class="increase-btn">+</button>
+            </div>
+            <button class="add-btn">Añadir</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="Dish Image" id="modal-img">
+            <h3 id="modal-title">Nombre del Plato</h3>
+            <p id="modal-quantity">Cantidad: 0</p>
+            <div class="price" id="modal-price">$0</div>
+            <button id="confirm-btn">Confirmar Compra</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Mi Restaurante. Todos los derechos reservados.</p>
+            <p>Contacto: correo@restaurante.com | Teléfono: +123 456 789</p>
+            <p>Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+        
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalQuantity = document.getElementById('modal-quantity');
+        const modalPrice = document.getElementById('modal-price');
+        const closeBtn = document.querySelector('.close-btn');
+        const confirmBtn = document.getElementById('confirm-btn');
+
+        document.querySelectorAll('.increase-btn').forEach((btn) => {
+            btn.addEventListener('click', function () {
+                const counter = this.previousElementSibling;
+                counter.textContent = parseInt(counter.textContent) + 1;
+            });
+        });
+
+        document.querySelectorAll('.decrease-btn').forEach((btn) => {
+            btn.addEventListener('click', function () {
+                const counter = this.nextElementSibling;
+                if (parseInt(counter.textContent) > 0) {
+                    counter.textContent = parseInt(counter.textContent) - 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.add-btn').forEach((btn) => {
+            btn.addEventListener('click', function () {
+                const card = this.closest('.menu-card');
+                const title = card.querySelector('h3').innerText;
+                const imgSrc = card.querySelector('img').src;
+                const quantity = parseInt(card.querySelector('.counter').innerText);
+                const pricePerUnit = parseInt(card.querySelector('.price').innerText.replace('Bs.', ''));
+                const totalPrice = quantity * pricePerUnit;
+
+                if (quantity > 0) {
+                    modalImg.src = imgSrc;
+                    modalTitle.innerText = title;
+                    modalQuantity.innerText = `Cantidad: ${quantity}`;
+                    modalPrice.innerText = `Total: Bs. ${totalPrice}`;
+                    modal.dataset.title = title;
+                    modal.dataset.quantity = quantity;
+                    modal.dataset.totalPrice = totalPrice;
+                    modal.style.display = 'flex';
+                } else {
+                    alert('Selecciona al menos un plato antes de añadir.');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        confirmBtn.addEventListener('click', () => {
+            const title = modal.dataset.title;
+            const quantity = modal.dataset.quantity;
+            const totalPrice = modal.dataset.totalPrice;
+
+            if (title && quantity && totalPrice) {
+                const restaurantPhoneNumber = '59171747905';
+                const message = `Hola, quisiera realizar un pedido:%0A%0A` +
+                    `- Plato: ${title}%0A` +
+                    `- Cantidad: ${quantity}%0A` +
+                    `- Total: Bs. ${totalPrice}%0A%0A` +
+                    `Gracias.`;
+
+                const whatsappURL = `https://wa.me/${restaurantPhoneNumber}?text=${message}`;
+
+                window.open(whatsappURL, '_blank');
+
+                modal.style.display = 'none';
+            } else {
+                alert('Hubo un error al procesar el pedido.');
+            }
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+
+</body>
+
+</html>

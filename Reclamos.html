@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclamos</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f9f4ee;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+    }
+
+    .logo {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+        background-color: #b5895b;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .reservation-section {
+        padding: 2rem 0;
+        background-color: #f9f9f9;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #5e3e23;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 4rem;
+        color: #a87b56;
+    }
+
+    .reservation-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #5e3e23;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #b5895b;
+        color: #fff;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: #996a4c;
+    }
+
+    footer {
+        text-align: center;
+        background: #333;
+        padding: 1rem 0;
+    }
+
+    footer a {
+        color: #b5895b;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #fff;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        footer .footer-content {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            display: none;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url('https://th.bing.com/th/id/R.310c46519c6374ac16098cbc481a7f02?rik=KzBKt7%2bG68Qqpw&pid=ImgRaw&r=0');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 200px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Mi Restaurante</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Sucursales.html">Sucursales</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Menu.html">Menú</a></li>
+                <li><a href="Reclamos.html" class="active">Reclamos</a></li>
+                <li><a href="Reservacion.html">Reservaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">AREA DE RECLAMOS</h1>
+        </div>
+    </section>
+
+    <section class="reservation-section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué tu opinión importa?</h2>
+            <p class="section-description">En nuestro restaurante nos esforzamos por brindar la mejor experiencia
+                posible. Si algo no cumplió con
+                tus expectativas, queremos saberlo para mejorar continuamente.
+            </p>
+            <h1 class="section-title">Haz tu Reclamo</h1>
+            <p class="section-description">
+                Tu opinión es importante para nosotros. Completa el formulario y nos
+                pondremos en contacto contigo.
+            </p>
+            <form class="reservation-form" id="reclamoForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="teléfono">Telefono:</label>
+                    <input type="tel" id="teléfono" name="teléfono" placeholder="Tu numero de teléfono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Selecciona el Local:</label>
+                    <select id="location" name="location" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="central">Sucursal Central</option>
+                        <option value="norte">Sucursal Norte</option>
+                        <option value="sur">Sucursal Sur</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reclamo">Selecciona el tipo de reclamo:</label>
+                    <select id="reclamo" name="reclamo" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="servicio">Problema con el servicio</option>
+                        <option value="producto">Problema con un producto</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Descripcion del reclamo:</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="¿Algo que debamos saber?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Reclamo</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Mi Restaurante. Todos los derechos reservados.</p>
+            <p>Contacto: correo@restaurante.com | Teléfono: +123 456 789</p>
+            <p>Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+        
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        const form = document.getElementById('reclamoForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('teléfono').value.trim();
+            const location = document.getElementById('location').value;
+            const reclamo = document.getElementById('reclamo').value;
+            const notes = document.getElementById('notes').value.trim();
+
+            if (!name || !email || !telefono || !location || !reclamo || !notes) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+
+            const restaurantPhoneNumber = '59171747905';
+            const message = `Hola, quiero registrar un reclamo:%0A%0A` +
+                `- Nombre: ${name}%0A` +
+                `- Correo Electrónico: ${email}%0A` +
+                `- Teléfono: ${telefono}%0A` +
+                `- Local: ${location}%0A` +
+                `- Tipo de Reclamo: ${reclamo}%0A` +
+                `- Descripción: ${notes || 'Sin descripción adicional.'}%0A%0A` +
+                `Gracias por su atención.`;
+
+            const whatsappURL = `https://wa.me/${restaurantPhoneNumber}?text=${message}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+
+    </script>
+
+</body>
+
+</html>

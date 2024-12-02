@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f4ee;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+    }
+
+    .logo {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+        background-color: #b5895b;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            display: none;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url('https://th.bing.com/th/id/R.128fbe49b08ffd21138248c174dd5afc?rik=6pnWQwx65LeXKA&pid=ImgRaw&r=0');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 200px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    .services-container {
+        max-width: 70%;
+        margin: 30px auto;
+        padding: 0 15px;
+    }
+
+    .services-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .services-header h1 {
+        color: #5e3e23;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .services-header p {
+        color: #a87b56;
+        font-size: 1.2rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .service-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: white;
+        border: 2px solid #b5895b;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .service-text {
+        flex: 1;
+    }
+
+    .service-text h3 {
+        color: #5e3e23;
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .service-text p {
+        color: #555;
+        font-size: 1rem;
+    }
+
+    .service-text .icon {
+        display: inline-block;
+        background-color: #b5895b;
+        color: white;
+        border-radius: 50%;
+        padding: 10px;
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .service-item {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .service-item img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    footer {
+        text-align: center;
+        background: #333;
+        padding: 1rem 0;
+    }
+
+    footer a {
+        color: #b5895b;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #fff;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        footer .footer-content {
+            text-align: center;
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Mi Restaurante</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Sucursales.html">Sucursales</a></li>
+                <li><a href="Servicios.html" class="active">Servicios</a></li>
+                <li><a href="Menu.html">Menú</a></li>
+                <li><a href="Reclamos.html">Reclamos</a></li>
+                <li><a href="Reservacion.html">Reservaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">NUESTROS SERVICIOS</h1>
+        </div>
+    </section>
+
+    <div class="services-container">
+        <div class="services-header">
+            <h1>DISFRUTA DE NUESTROS SERVICIOS</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, error!</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="https://img.freepik.com/fotos-premium/camarero-latino-sonriendo-mientras-sirve-comida-restaurante_255755-16157.jpg"
+                    alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">🤝</span>Atención al cliente de calidad</h3>
+                    <p>Personal amable y capacitado que haga sentir a los clientes bienvenidos y atendidos.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="https://img.freepik.com/fotos-premium/mujer-sienta-mesa-restaurante-trabajando-computadora-portatil_800563-8548.jpg"
+                    alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">📶</span>Wi-Fi gratuito</h3>
+                    <p>Un servicio ideal para quienes desean trabajar, navegar o compartir su experiencia en redes
+                        sociales.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="https://us.123rf.com/450wm/peopleimages12/peopleimages122304/peopleimages12230410378/202642056-mujer-soltera-deslizando-el-dedo-en-una-aplicaci%C3%B3n-de-citas-mujer-navegando-en-l%C3%ADnea-desplaz%C3%A1ndose.jpg?ver=6"
+                    alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">📅</span>Reservas en línea</h3>
+                    <p>Una plataforma digital para que los clientes reserven mesa fácilmente desde cualquier lugar.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="https://www.laizquierdadiario.com/IMG/arton204705.jpg?1628391996" alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">🚗</span>Entrega a domicilio o para llevar</h3>
+                    <p> Servicios que permitan a los clientes disfrutar de la comida del restaurante en casa o donde
+                        prefieran.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_c9Jyk7HkxMwVFODsFaCRdNjUuzTNLoSgpQ&s"
+                    alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">🎨</span>Ambiente temático y acogedor</h3>
+                    <p>Espacios diseñados con un concepto atractivo y cómodo que mejore la experiencia de los clientes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="https://img.freepik.com/fotos-premium/chefs-artisticamente-adornando-plato-colorido-verduras-frescas-luz-natural-concepto-fotografia-alimentos-artes-culinarias-ingredientes-frescos-tecnicas-adornamiento-iluminacion-natural_918839-268625.jpg"
+                    alt="Servicio 1">
+                <div class="service-text">
+                    <h3><span class="icon">🌱</span>Menú sostenible y local</h3>
+                    <p>Platos preparados con ingredientes frescos y de proveedores locales, promoviendo la
+                        sostenibilidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Mi Restaurante. Todos los derechos reservados.</p>
+            <p>Contacto: correo@restaurante.com | Teléfono: +123 456 789</p>
+            <p>Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f9f4ee;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+    }
+
+    .logo {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+        background-color: #b5895b;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            display: none;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230723/pngtree-sleek-and-contemporary-restaurant-lounge-design-rendered-in-3d-image_3779577.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 200px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+        }
+    }
+
+    footer {
+        text-align: center;
+        background: #333;
+        padding: 1rem 0;
+    }
+
+    footer a {
+        color: #b5895b;
+        text-decoration: none;
+    }
+
+    footer p {
+        color: #fff;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        footer .footer-content {
+            text-align: center;
+        }
+    }
+
+    .about {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 24px;
+        color: #5e3e23;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 70px;
+        color: #a87b56;
+    }
+
+    .about-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .text {
+        flex: 1 1 62%;
+        text-align: left;
+    }
+
+    .image {
+        flex: 1 1 32%;
+    }
+
+    .image img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 565px;
+    }
+
+    h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #5e3e23;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #a87b56;
+    }
+
+    .vision ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .vision ul li {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #a87b56;
+    }
+
+    .btn {
+        background-color: #b5895b;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-bottom: 40px;
+    }
+
+    .btn:hover {
+        background-color: #996a4c;
+    }
+
+    @media (max-width: 768px) {
+        .about-content {
+            flex-direction: column;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .image {
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Mi Restaurante</a>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="Opiniones.html">Opiniones</a></li>
+                <li><a href="Sucursales.html">Sucursales</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Menu.html">Menú</a></li>
+                <li><a href="Reclamos.html">Reclamos</a></li>
+                <li><a href="Reservacion.html">Reservaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">EXPERIENCIAS GASTRONÓMICAS</h1>
+        </div>
+    </section>
+
+    <div style="width: 75%; margin: 0 auto;">
+        <section class="about">
+            <div class="container">
+                <h3 class="section-title">Acerca de Nosotros</h3>
+                <h2 class="subtitle">Sirviendo Desde 1950</h2>
+                <div class="about-content">
+                    <div class="text">
+                        <div class="story">
+                            <h3>Nuestra Historia</h3>
+                            <p>
+                                En nuestro restaurante, hemos perfeccionado el arte de la cocina a lo largo de décadas.
+                                Nuestro objetivo siempre ha sido brindar calidad, sabor y una experiencia inolvidable
+                                para
+                                nuestros comensales.
+                            </p>
+                            <p>
+                                Cada plato cuenta una historia, desde nuestras recetas tradicionales hasta las nuevas
+                                creaciones modernas.
+                            </p>
+                            <button class="btn">Saber Más</button>
+                        </div>
+
+                        <div class="vision">
+                            <h3>Nuestra Visión</h3>
+                            <p>
+                                Queremos ser reconocidos como el lugar donde las personas disfrutan de momentos
+                                inolvidables
+                                mientras saborean lo mejor de la gastronomía.
+                            </p>
+                            <ul>
+                                <li>✔ Ingredientes frescos y de calidad</li>
+                                <li>✔ Atención personalizada</li>
+                                <li>✔ Ambiente acogedor y familiar</li>
+                            </ul>
+                            <button class="btn">Saber Más</button>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="https://us.images.westend61.de/0001266994pw/chef-sirviendo-comida-en-platos-en-la-cocina-de-un-restaurante-CJMF00102.jpg"
+                            alt="Plato representativo">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Mi Restaurante. Todos los derechos reservados.</p>
+            <p>Contacto: correo@restaurante.com | Teléfono: +123 456 789</p>
+            <p>Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+        </div>
+    </footer>
+
+    <script>
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+    </script>
+
+</body>
+
+</html>
